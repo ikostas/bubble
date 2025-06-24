@@ -8,3 +8,9 @@ A list of subreddits can be manually generated using chat-bot, based on:
 
 - current list of subreddits
 - a description of yourself, your interests
+
+Some useful links:
+
+- [A sample app](https://reddit-client.netlify.app/) by codecademy
+- [Reddit API](https://developers.reddit.com/docs/)
+- [Project kanban board](https://github.com/users/ikostas/projects/9)
