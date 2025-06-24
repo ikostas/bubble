@@ -12,5 +12,5 @@ A list of subreddits can be manually generated using chat-bot, based on:
 Some useful links:
 
 - [A sample app](https://reddit-client.netlify.app/) by codecademy
-- [Reddit API](https://developers.reddit.com/docs/)
+- [Reddit API](https://www.reddit.com/dev/api)
 - [Project kanban board](https://github.com/users/ikostas/projects/9)
