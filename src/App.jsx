@@ -1,13 +1,11 @@
 // import { useState } from 'react';
-import SearchBar from './components/Search';
-import TopHeadlines from './components/TopHeadlines';
+import NavBar from './components/Nav';
 
 function App() {
 
   return (
     <>
-      <SearchBar />
-      <TopHeadlines />
+      <NavBar />
     </>
   )
 }
