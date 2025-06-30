@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import TopHeadlines from './TopHeadlines';
+import Headlines from './Headlines';
 import TagCloud from './TagCloud';
 import SearchNews from './SearchNews';
 
@@ -15,7 +15,7 @@ export default function NavBar(){
     </ul>
   </nav>
       <Routes>
-        <Route path="/" element={<TopHeadlines />}></Route>
+        <Route path="/" element={<Headlines />}></Route>
         <Route path="/tagcloud" element={<TagCloud />}></Route>
         <Route path="/searchthenews" element={<SearchNews />}></Route>
       </Routes>

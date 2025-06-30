@@ -1,4 +1,5 @@
 import React from 'react';
+
 export default function Headline({article}) {
   const timestamp = article.publishedAt;
   const date = new Date(timestamp);
