@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {execQuery} from './execQuery';
 
 function oneMonthAgo() {
   // on free plan we can search only 1 month deep with 24h delay, so it's excessive
@@ -12,42 +13,20 @@ function oneMonthAgo() {
 }
 
 export const searchNews = createAsyncThunk(
-  'news/fetchNews', 
+  'news/searchNews', 
   async (query, { rejectWithValue }) => {
-const url = 'https://newsapi.org/v2/everything';
-const searchParams = new URLSearchParams();
-searchParams.append('q', query);
-searchParams.append('searchIn', 'title');
-searchParams.append('language', 'en');
-searchParams.append('sortBy', 'relevancy');
-searchParams.append('pageSize', '10');
-searchParams.append('page', '1');
-searchParams.append('from', oneMonthAgo());
-const searchUrl = url + '?' + searchParams.toString();
-try {
-  const response = await fetch(searchUrl , { 
-    method: 'GET',
-    headers: {
-      'Authorization': import.meta.env.VITE_API_KEY,
-    }
+    const url = 'https://newsapi.org/v2/everything';
+    const searchParams = new URLSearchParams();
+    searchParams.append('q', query);
+    searchParams.append('searchIn', 'title');
+    searchParams.append('language', 'en');
+    searchParams.append('sortBy', 'relevancy');
+    searchParams.append('pageSize', '10');
+    searchParams.append('page', '1');
+    searchParams.append('from', oneMonthAgo());
+    const searchUrl = url + '?' + searchParams.toString();
+    return execQuery(searchUrl);
   });
-
-  if (!response.ok) {
-    const errorData = await response.json();
-    return rejectWithValue(errorData.message || `HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
-  if (data && data.articles && Array.isArray(data.articles)) {
-    return data.articles;
-  } else {
-    console.warn("News API response did not contain expected track data structure.");
-    return rejectWithValue(data.message || "News API returned an unexpected response structure or status.");
-  }
-} catch (err) {
-  console.error('Error quering News API:', err);
-  return rejectWithValue(err.message || 'An unknown error occurred.');
-}
-});
 
 const newsSlice = createSlice({
   name: 'news',
