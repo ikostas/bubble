@@ -20,6 +20,6 @@ You need to get your API KEY from newsapi.org.
 
 ```bash
 npm i
-cat "VITE_API_KEY=<your API KEY from newsapi.org>"
+echo "VITE_API_KEY=<your API KEY from newsapi.org>" >> .env
 npm run dev
 ```
