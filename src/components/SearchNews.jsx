@@ -16,7 +16,7 @@ export default function SearchNews() {
   }
   return(
     <>
-      <h1>Search the News</h1>
+      <h2>Search the News</h2>
       <form>
         <fieldset>
           <label htmlFor="search">Search:</label>

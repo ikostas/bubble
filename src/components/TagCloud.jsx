@@ -48,7 +48,7 @@ export default function TagCloud () {
   }, [topNews]);
   return(
     <>
-      <h1>Tag Cloud</h1>
+      <h2>Tag Cloud</h2>
       {isLoading ? (
         <p>Loading tags...</p>
       ) : isError ? (

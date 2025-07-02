@@ -10,7 +10,7 @@ export default function TopHeadlines() {
   // console.log(topNews);
   return(
     <>
-      <h1>Top News in Technology</h1>
+      <h2>Top News in Technology</h2>
       {isLoading ? (
         <p>Loading news...</p>
       ) : isError ? (
